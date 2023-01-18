@@ -1,0 +1,97 @@
+<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:sy="http://purl.org/rss/1.0/modules/syndication/" xmlns:admin="http://webns.net/mvcb/" xmlns:atom="http://www.w3.org/2005/Atom/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" version="2.0">
+	<channel>
+		<title>The Low HP Podcast</title>
+		<link>https://persomatey.github.io/LowHP/</link>
+		<description>We talk about games</description>
+		<language>en-US</language>
+		<itunes:author>Low HP</itunes:author>
+		<itunes:keywords>gaming, nintendo, zelda, pokemon</itunes:keywords>
+		<itunes:explicit>clean</itunes:explicit>
+		<itunes:image href="http://relayfm.s3.amazonaws.com/uploads/broadcast/image/17/cortex_artwork.png"/>
+		<itunes:owner>
+			<itunes:name>Low HP</itunes:name>
+		</itunes:owner>
+		<itunes:block>no</itunes:block>
+		<itunes:category text="Video Games"/>
+		<item>
+			<title>2: The Second Episode</title>
+			<itunes:title>The Second Episode</itunes:title>
+			<itunes:episode>2</itunes:episode>
+			<itunes:author>Hunter Goodin, Bradford Botton</itunes:author>
+			<itunes:explicit>clean</itunes:explicit>
+			<itunes:duration>12120</itunes:duration>
+			<enclosure url="https://www.podtrac.com/pts/redirect.mp3/traffic.libsyn.com/secure/cortex/Cortex_135.mp3" length="194288583" type="audio/mp3" />
+			<description>This week we talk about some gaming stuff.</description>
+			<itunes:subtitle>This week we talk about some gaming stuff.</itunes:subtitle>
+			<itunes:summary>This week we talk about some gaming stuff.</itunes:summary>
+			<pubDate>Tue, 17 Jan 2023 23:52:20 1/17/2023, 11:53:20 PM PST</pubDate>
+			<link>"https://www.podtrac.com/pts/redirect.mp3/traffic.libsyn.com/secure/cortex/Cortex_135.mp3" </link>
+			<guid>"https://www.podtrac.com/pts/redirect.mp3/traffic.libsyn.com/secure/cortex/Cortex_135.mp3" </guid>
+			<ytlink>https://www.youtube.com/watch?v=KOUBrj8n9Ns</ytlink>
+			<content:encoded>
+				<![CDATA[
+				<h4>You can follow us:</h4>
+				<ul>
+				<li><a href="https://www.youtube.com/">YouTube</a></li>
+				<li><a href="https://podcasts.apple.com/us/podcast/chatter-caf%C3%A9/id931337524">ApplePodcasts</a></li>
+				<li><a href="podbean">PodBean</a></li>
+				<li><a href="spotify">Spotify</a></li>
+				</ul>
+				
+				<h4>Links and Show Notes:</h4>
+				<h5><a href="https://www.google.com/" target="_blank">Link to a source </a></h5>
+				<h5><a href="https://www.google.com/" target="_blank">Link to a source</a></h5><p>Some text describing the link</p>
+				
+			]]>
+			</content:encoded>
+			<content>
+				<![CDATA[
+				<h5>Links and Show Notes:</h5>
+				<h6><a href="https://www.google.com/" target="_blank">Link to a source </a></h6>
+				<h6><a href="https://www.google.com/" target="_blank">Link to a source <div style="color: #406098;">some text describing the link</div> </a></h6>
+			]]>
+			</content>
+			<itunes:image href="artworkURLLL" />
+		</item>
+		<item>
+			<title>1: The First Episode</title>
+			<itunes:title>The First Episode</itunes:title>
+			<itunes:episode>1</itunes:episode>
+			<itunes:author>Hunter Goodin, Bradford Botton</itunes:author>
+			<itunes:explicit>clean</itunes:explicit>
+			<itunes:duration>12120</itunes:duration>
+			<enclosure url="https://www.podtrac.com/pts/redirect.mp3/traffic.libsyn.com/secure/cortex/Cortex_135.mp3" length="194288583" type="audio/mp3" />
+			<description>This week we talk about some gaming stuff.</description>
+			<itunes:subtitle>This week we talk about some gaming stuff.</itunes:subtitle>
+			<itunes:summary>This week we talk about some gaming stuff.</itunes:summary>
+			<pubDate>Tue, 16 Jan 2023 23:52:20 1/16/2023, 11:52:20 PM PST</pubDate>
+			<link>"https://www.podtrac.com/pts/redirect.mp3/traffic.libsyn.com/secure/cortex/Cortex_135.mp3" </link>
+			<guid>"https://www.podtrac.com/pts/redirect.mp3/traffic.libsyn.com/secure/cortex/Cortex_135.mp3" </guid>
+			<ytlink>https://www.youtube.com/watch?v=KOUBrj8n9Ns</ytlink>
+			<content:encoded>
+				<![CDATA[
+				<h4>You can follow us:</h4>
+				<ul>
+				<li><a href="https://www.youtube.com/">YouTube</a></li>
+				<li><a href="https://podcasts.apple.com/us/podcast/chatter-caf%C3%A9/id931337524">ApplePodcasts</a></li>
+				<li><a href="podbean">PodBean</a></li>
+				<li><a href="spotify">Spotify</a></li>
+				</ul>
+				
+				<h4>Links and Show Notes:</h4>
+				<h5><a href="https://www.google.com/" target="_blank">Link to a source </a></h5>
+				<h5><a href="https://www.google.com/" target="_blank">Link to a source</a></h5><p>Some text describing the link</p>
+				
+			]]>
+			</content:encoded>
+			<content>
+				<![CDATA[
+				<h5>Links and Show Notes:</h5>
+				<h6><a href="https://www.google.com/" target="_blank">Link to a source </a></h6>
+				<h6><a href="https://www.google.com/" target="_blank">Link to a source <div style="color: #406098;">some text describing the link</div> </a></h6>
+			]]>
+			</content>
+			<itunes:image href="artworkURLLL" />
+		</item>
+	</channel>
+</rss>

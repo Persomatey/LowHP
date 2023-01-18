@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Input Fields</title>
+	</head>
+	<body onload="PopulateFields()">
+		<h1>Input Fields</h1>
+		<form>
+			<!-- File URL -->
+			<label>
+				File URL:
+				<input type="text" id="fileURL" value="" style="width: 750px;">
+			</label>
+			<br>
+			<!-- Artwork URL -->
+			<label>
+				Artwork URL:
+				<input type="text" id="artworkURL" value="" style="width: 750px;">
+			</label>
+			<br>
+			<!-- Episode Title -->
+			<label>
+				Episode Title:
+				<input type="text" id="title" value="" style="width: 500px;">
+			</label>
+			<br>
+			<!-- Episode Number -->
+			<label>
+				Episode Number:
+				<input type="text" id="epNum" value="" style="width: 25px;">
+			</label>
+			<br>
+			<!-- Authors -->
+			<label>
+				Authors:
+				<input type="text" id="authors" value="" style="width: 400px;">
+			</label>
+			<br>
+			<!-- Description -->
+			<label>
+				Description:
+				<input type="text" id="desc" value="" style="width: 400px;">
+			</label>
+			<br>
+			<!-- Website Episode Link -->
+			<label>
+				Website Episode Link:
+				<input type="text" id="webLink" value="">
+			</label>
+			<br>
+			<!-- YouTube Episode Link -->
+			<label>
+				YouTube Episode Link:
+				<input type="text" id="ytLink" value="">
+			</label>
+			<br>
+			<!-- Content:Encoded -->
+			<label>
+				Content:Encoded:
+				<textarea id="contentEncoded" value="" rows="20" cols="150"></textarea>
+			</label>
+			<br>
+			<!-- Content -->
+			<label>
+				Content-Encoded:
+				<textarea id="content" value="" rows="20" cols="150"></textarea>
+			</label>
+			<br>
+
+			<!-- Button -->
+			<button type="button" id="display-button">Display values</button>
+		</form>
+
+		<p id="result"></p>
+		<!-- <input type="text" id="result" name="result" style="width: 500px; height: 500px;"><br><br> -->
+
+		<script>
+			let displayButton = document.getElementById("display-button");
+			let resultParagraph = document.getElementById("result");
+
+			displayButton.addEventListener("click", function() 
+			{
+				let fileURL = document.getElementById("fileURL").value;
+				let title = document.getElementById("title").value;
+				let epNum = document.getElementById("epNum").value;
+				let authors = document.getElementById("authors").value;
+				let desc = document.getElementById("desc").value;
+				let webLink = document.getElementById("webLink").value;
+				let ytLink = document.getElementById("ytLink").value;
+				let content = document.getElementById("content").value;
+				let contentEnc = document.getElementById("contentEncoded").value;
+				let artworkURL = document.getElementById("artworkURL").value;
+
+				Print(fileURL, title, epNum, authors, desc, webLink, ytLink, contentEnc, content, artworkURL); 
+			});
+
+			function PopulateFields() 
+			{
+				document.getElementById("contentEncoded").value = 
+`<h4>You can follow us:</h4> 
+<ul>
+	<li><a href="https://www.youtube.com/">YouTube</a></li>
+	<li><a href="https://podcasts.apple.com/us/podcast/chatter-caf%C3%A9/id931337524">ApplePodcasts</a></li>
+	<li><a href="podbean">PodBean</a></li>
+	<li><a href="spotify">Spotify</a></li>
+</ul>
+
+<h4>Links and Show Notes:</h4>
+<h5><a href="https://www.google.com/" target="_blank">Link to a source </a></h5>
+<h5><a href="https://www.google.com/" target="_blank">Link to a source</a></h5><p>Some text describing the link</p>
+`;
+				document.getElementById("content").value = 
+`<h5>Links and Show Notes:</h5>
+<h6><a href="https://www.google.com/" target="_blank">Link to a source </a></h6>
+<h6><a href="https://www.google.com/" target="_blank">Link to a source <div style="color: #406098;">some text describing the link</div> </a></h6>
+`;
+			}
+
+			function getCurrentDateTime() {
+				const date = new Date();
+				const dayOfWeek = date.toLocaleString('en-US', { weekday: 'short' });
+				const month = date.toLocaleString('en-US', { month: 'short' });
+				const dayOfMonth = date.getDate();
+				const year = date.getFullYear();
+				const time = date.toLocaleTimeString('en-US', { hour12: false, hour: 'numeric', minute: 'numeric', second: 'numeric' });
+				const timeZone = date.toLocaleString('en-US', { timeZoneName: 'short' });
+				return `${dayOfWeek}, ${dayOfMonth} ${month} ${year} ${time} ${timeZone}`;
+			}
+
+			async function Print(fileURL, title, epNum, authors, desc, webLink, ytLink, contentEnc, content, artworkURL)
+			{
+				const response = await fetch(fileURL);
+				const audio = new Audio();
+				audio.src = fileURL;
+				
+				audio.onloadedmetadata = function() {
+					const duration = parseInt(audio.duration);
+					const fileSize = response.headers.get('Content-Length');
+
+					let newContEnc = contentEnc.replaceAll("\n", "\n &nbsp &nbsp &nbsp "); 
+					let newCont = content.replaceAll("\n", "\n &nbsp &nbsp &nbsp "); 
+
+					let str = `` 
+					str += `<item>\n`; 
+					str += ` &nbsp <title>${epNum}: ${title}</title>\n`;
+					str += ` &nbsp <itunes:title>${title}</itunes:title>\n`;
+					str += ` &nbsp <itunes:episode>${epNum}</itunes:episode>\n`;
+					str += ` &nbsp <itunes:author>${authors}</itunes:author>\n`;
+					str += ` &nbsp <itunes:explicit>clean</itunes:explicit>\n`;
+					str += ` &nbsp <itunes:duration>${duration}</itunes:duration>\n`;
+					str += ` &nbsp <enclosure url="${fileURL}" length="${fileSize}" type="audio/mp3" />\n`;
+					str += ` &nbsp <description>${desc}</description>\n`;
+					str += ` &nbsp <itunes:subtitle>${desc}</itunes:subtitle>\n`;
+					str += ` &nbsp <itunes:summary>${desc}</itunes:summary>\n`;
+					str += ` &nbsp <pubDate>${getCurrentDateTime()}</pubDate>\n`;
+					str += ` &nbsp <link>${webLink}</link>\n`;
+					str += ` &nbsp <guid>${webLink}</guid>\n`;
+					str += ` &nbsp <ytLink>${ytLink}</ytLink>\n`;
+
+					str += ` &nbsp <content:encoded>\n`
+					str += ` &nbsp &nbsp <![CDATA[\n`;
+					str += ` &nbsp &nbsp &nbsp ${newContEnc}\n`
+					str += ` &nbsp &nbsp]]>\n`
+					str += ` &nbsp </content:encoded>\n`
+
+					str += ` &nbsp <content>\n`
+					str += ` &nbsp &nbsp <![CDATA[\n`;
+					str += ` &nbsp &nbsp &nbsp ${newCont}\n`
+					str += ` &nbsp &nbsp]]>\n`
+					str += ` &nbsp </content>\n`
+
+					str += ` &nbsp <itunes:image href="${artworkURL}" \/>\n`
+					str += `</item>`
+					
+					str = str.replaceAll('<', '&lt;'); 
+					str = str.replaceAll('>', '&gt;'); 
+					str = str.replaceAll('\n', '<br>'); 
+
+					resultParagraph.innerHTML = str;
+				}
+			}
+		</script>
+	</body>
+</html>

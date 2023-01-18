@@ -1,0 +1,255 @@
+html 
+{
+	font-family: Arial, Helvetica, sans-serif
+}
+
+p, li 
+{
+	font-size: 18px;
+	line-height: 2;
+	letter-spacing: 1px;
+}
+
+html 
+{
+	background-color: white;
+	font-size: 40px;
+}
+
+body 
+{
+	width: auto;
+	height: auto;
+	margin: 0 auto;
+	background-color: white;
+	color: black;
+	font-size: 15px;
+	/*padding: 0 20px 20px 20px;*/
+}
+
+/*
+Hex Codes: 
+
+Navy Blue: 
+283850
+304878
+406098
+
+Maroon:
+801038 
+c01850
+e07898
+
+Yellow: 
+a08820
+e8d840
+
+White: 
+b8b8d8
+f8f8f8
+*/
+
+h1 /* For Latest Episode text*/
+{
+	font-size: 35px;
+	text-align: left;
+	margin: 0 auto;
+	color: #406098;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+
+h2 /* For RSS episode title*/
+{
+	font-size: 30px;
+	text-align: left;
+	margin: 0 auto;
+	color: #b8b8d8;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+
+h3 /* For RSS pubdate */
+{
+	font-size: 15px;
+	text-align: left;
+	margin: 0 auto;
+	color: #406098;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+
+h4 /* For RSS description */
+{
+	font-size: 15px;
+	text-align: left;
+	margin: 0 auto;
+	color: #b8b8d8;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+
+h5 /* For RSS links & show notes text */
+{
+	font-size: 20px;
+	text-align: left;
+	margin: 0 auto;
+	color: #b8b8d8;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+
+h6 /* For RSS contents  */
+{
+	font-size: 15px;
+	text-align: left;
+	margin: 0 auto;
+	color: #b8b8d8;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+
+p
+{
+	padding-left: 15px;
+	padding-right: 0px;
+	color: grey; 
+}
+
+b
+{
+	text-decoration: none;
+}
+
+/* Font Control Stuff */
+A
+{
+	text-decoration: none; 
+	color: #b8b8d8;
+} 
+C
+{
+	text-decoration: none;
+	color: black; 
+	padding-right: 0px;
+	padding-left: 20px;
+	font-size: 1.3vw;
+}
+D
+{
+	text-decoration: none;
+	color: grey; 
+	padding-right: 0px;
+	padding-left: 20px;
+}
+E
+{
+	text-decoration: none;
+	color: black; 
+}
+F
+{
+	text-decoration: none;
+	color: black; 
+	padding-right: 0px;
+	padding-left: 5px;
+	font-size: 18px;
+}
+
+/*
+img 
+{
+	display: block;
+	padding-top: 10px;
+	padding-right: 0px;
+	padding-left: 0px;
+}
+*/
+
+/*
+Hex Codes: 
+
+Navy Blue: 
+283850
+304878
+406098
+
+Maroon:
+801038 
+c01850
+e07898
+
+Yellow: 
+a08820
+e8d840
+
+White: 
+b8b8d8
+f8f8f8
+*/
+
+.hunterlink
+{
+	color: #406098;
+	text-decoration: none;
+	
+}
+
+.hunterlink:hover
+{
+	color: #b8b8d8;
+	text-decoration: none;
+}
+
+.container 
+{
+	display: flex;
+	align-items: center;
+	justify-content: center
+}
+
+img 
+{
+	max-width: 100%
+}
+
+.image 
+{
+	flex-basis: 40%
+}
+
+.text 
+{
+	font-size: 20px;
+	padding-left: 20px;
+	padding-bottom: 5px;
+}
+
+hr 
+{
+	width: 60%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.columnheader
+{
+	float: left; 
+	width: 30%;
+	/*background-color:blue;*/
+}
+
+.columnside
+{
+	float: left; 
+	width: 19.5%;
+	/*background-color:yellow;*/
+}
+
+.column
+{
+	padding-top: 0%;
+	float: left; 
+	width: 60%;
+	/*background-color:orange;*/
+}
