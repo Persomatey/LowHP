@@ -1,25 +1,18 @@
 function LoadHeader()
 {
-	if (document.getElementsByTagName("title")[0] != "Hunter Goodin")
-	{
-		console.log("Loading Header"); 
+	console.log("Loading Header"); 
 
-		fetch('/header.html')
-		.then(response => response.text())
-		.then(text => document.getElementById('header').innerHTML = text);
-	}
+	fetch('header.html')
+	.then(response => response.text())
+	.then(text => document.getElementById('header').innerHTML = text);
 }
 
 function LoadFooter()
 {
-	if (document.getElementsByTagName("title")[0] != "Hunter Goodin")
-	{
-		console.log("Loading Footer"); 
+	console.log("Loading Footer"); 
 
-		fetch('/footer.html')
-		.then(response => response.text())
-		
-	}
+	fetch('/footer.html')
+	.then(response => response.text())
 }
 
 function ParseRSSThenReturnIndex(url)
