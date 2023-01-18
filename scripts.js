@@ -91,8 +91,6 @@ function ParseAllRSS(url)
 			});
 			html += '</p>';
 
-			console.log(html); 
-
 			return html;
 		})
 		.then(text => document.getElementById('rss').innerHTML = text);
@@ -112,8 +110,6 @@ function ParseRSSToCount(url, count)
 			let items = channel.querySelectorAll('item');
 			html += '<h1>' + "LATEST EPISODES:" + '</h1>';
 			html += '<p>';
-
-			console.log("items counted:" + items.length); 
 
 			items.forEach(item => {
 				n++; 
@@ -140,8 +136,6 @@ function ParseRSSToCount(url, count)
 			html += `<a class="hunterlink" style="font-size: 35px; padding-right:10px;" href="/archive.html"><b>ARCHIVE</b></a>`
 			html += `<br><br><br>`
 			html += '</p>';
-
-			console.log(html); 
 
 			return html;
 		})
