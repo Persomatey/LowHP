@@ -11,7 +11,7 @@ function LoadFooter()
 {
 	console.log("Loading Footer"); 
 
-	fetch('/footer.html')
+	fetch('footer.html')
 	.then(response => response.text())
 }
 
@@ -120,7 +120,7 @@ function ParseRSSToCount(url, count)
 					html += `<h2 style="padding-bottom:0px;">${title}</h2>`;
 					html += `<h3 style="text-align:left;">${pubDate}</h3>`; 
 					html += `<h4 style="text-align:left;">${description}</h4>`; 
-					html += `<iframe width="560" height="315" src="https://www.youtube.com/embed/${vidID}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`
+					html += `<iframe width=560 height=315 src="https://www.youtube.com/embed/${vidID}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`
 					html += `${content}`;
 					html += `<br><br><br>`
 				}

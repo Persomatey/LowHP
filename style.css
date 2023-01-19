@@ -210,7 +210,9 @@ f8f8f8
 
 img 
 {
-	max-width: 100%
+	display: block;
+	max-width: 100%; 
+	max-height: 100%; 
 }
 
 .image 
@@ -236,14 +238,42 @@ hr
 {
 	float: left; 
 	width: 30%;
-	/*background-color:blue;*/
+}
+
+@media (min-aspect-ratio: 1/1) /* if width greater than height */
+{
+    .columnheader 
+	{
+		width: 30%;
+    }
+}
+@media (max-aspect-ratio: 1/1) /* if height greater than width */
+{
+    .columnheader 
+	{
+		width: 40%;
+    }
 }
 
 .columnside
 {
 	float: left; 
 	width: 19.5%;
-	/*background-color:yellow;*/
+}
+
+@media (min-aspect-ratio: 1/1) /* if width greater than height */
+{
+    .columnside 
+	{
+		width: 19.5%;
+    }
+}
+@media (max-aspect-ratio: 1/1) /* if height greater than width */
+{
+    .columnside 
+	{
+		width: 10%;
+    }
 }
 
 .column
@@ -251,5 +281,36 @@ hr
 	padding-top: 0%;
 	float: left; 
 	width: 60%;
-	/*background-color:orange;*/
+}
+
+@media (min-aspect-ratio: 1/1) /* if width greater than height */
+{
+    .column 
+	{
+		width: 60%;
+    }
+}
+@media (max-aspect-ratio: 1/1) /* if height greater than width */
+{
+    .column 
+	{
+		width: 80%;
+    }
+}
+
+@media (min-aspect-ratio: 1/1) /* if width greater than height */
+{
+    iframe 
+	{
+		width: 32vw; 
+		height: 18vw; 
+    }
+}
+@media (max-aspect-ratio: 1/1) /* if height greater than width */
+{
+    iframe 
+	{
+		width: 72vw; 
+		height: 41vw; 
+    }
 }
