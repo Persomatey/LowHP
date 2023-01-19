@@ -281,6 +281,21 @@ hr
 	width: 39%;
 }
 
+.columnheaderSubStyleController
+{
+	height:250px; 
+	padding-top:0px; 
+	padding-right:10px;
+}
+@media (max-aspect-ratio: 1/1) 
+{
+    .columnheaderSubStyleController
+	{
+		padding-right:0px;
+    }
+}
+
+
 @media (min-aspect-ratio: 1/1) 
 {
     .columnheaderSub
@@ -297,18 +312,6 @@ hr
 		padding-top: 0px;
     }
 }
-
-/* .columnsoloside
-{
-	float: left; 
-	width: 30%;
-}
-
-.columnsolo
-{
-	float: left; 
-	width: 10%; 
-} */
 
 .columnside
 {

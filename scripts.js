@@ -1,8 +1,10 @@
-function LoadHeader()
+function LoadHeader(pre)
 {
-	console.log("Loading Header"); 
+	pre = (!pre) ? "" : pre; 
+	let url = pre + 'header.html';
+	console.log("Loading Header at " + url); 
 
-	fetch('header.html')
+	fetch(url)
 	.then(response => response.text())
 	.then(text => document.getElementById('header').innerHTML = text);
 }
