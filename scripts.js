@@ -77,7 +77,7 @@ function ParseAllRSS(url)
 			items.forEach(item => {
 				let title = item.querySelector('title').textContent;
 				let episodeNum = GetEpisodeNumber(title); 
-				let url = `/episodes/${episodeNum}.html` 
+				let url = `episodes/${episodeNum}.html` 
 
 				html += `<A href="${url}"> <h2 style="padding-bottom:0px;">${title}</h2></A>`;
 				html += `<br>`
