@@ -27,28 +27,6 @@ body
 	/*padding: 0 20px 20px 20px;*/
 }
 
-/*
-Hex Codes: 
-
-Navy Blue: 
-283850
-304878
-406098
-
-Maroon:
-801038 
-c01850
-e07898
-
-Yellow: 
-a08820
-e8d840
-
-White: 
-b8b8d8
-f8f8f8
-*/
-
 h1 /* For Latest Episode text*/
 {
 	font-size: 35px;
@@ -127,66 +105,48 @@ A
 	text-decoration: none; 
 	color: #b8b8d8;
 } 
+
 C
 {
-	text-decoration: none;
-	color: black; 
-	padding-right: 0px;
-	padding-left: 20px;
-	font-size: 1.3vw;
+	font-size: 30px; 
+	padding-right:0px; 
+	color:#b8b8d8;
 }
+@media (min-aspect-ratio: 1/1) /* if width greater than height */
+{
+    C 
+	{
+		font-size: 30px; 
+    }
+}
+@media (max-aspect-ratio: 1/1) /* if height greater than width */
+{
+    C 
+	{
+		font-size: 0px; 
+    }
+}
+
 D
 {
-	text-decoration: none;
-	color: grey; 
-	padding-right: 0px;
-	padding-left: 20px;
+	font-size: 20px; 
+	padding-right:10px;
 }
-E
+
+@media (min-aspect-ratio: 1/1) /* if width greater than height */
 {
-	text-decoration: none;
-	color: black; 
+    D 
+	{
+		font-size: 20px; 
+    }
 }
-F
+@media (max-aspect-ratio: 1/1) /* if height greater than width */
 {
-	text-decoration: none;
-	color: black; 
-	padding-right: 0px;
-	padding-left: 5px;
-	font-size: 18px;
+    D
+	{
+		font-size: 0px; 
+    }
 }
-
-/*
-img 
-{
-	display: block;
-	padding-top: 10px;
-	padding-right: 0px;
-	padding-left: 0px;
-}
-*/
-
-/*
-Hex Codes: 
-
-Navy Blue: 
-283850
-304878
-406098
-
-Maroon:
-801038 
-c01850
-e07898
-
-Yellow: 
-a08820
-e8d840
-
-White: 
-b8b8d8
-f8f8f8
-*/
 
 .hunterlink
 {
@@ -211,8 +171,37 @@ f8f8f8
 img 
 {
 	display: block;
-	max-width: 100%; 
-	max-height: 100%; 
+	max-width:250px;
+	max-height:250px;
+	width: auto;
+	height: auto;
+}
+
+img:ico
+{
+	display: block;
+	max-width: 35px;
+	max-height: 35px;
+	width: auto;
+	height: auto;
+	object-fit: contain;
+}
+@media (min-aspect-ratio: 1/1) /* if width greater than height */
+{
+    img:ico 
+	{
+		max-width:35px;
+		max-height:35px;
+    }
+}
+@media (max-aspect-ratio: 1/1) /* if height greater than width */
+{
+    img:ico 
+	{
+		max-width:100px;
+		max-height:100px;
+		padding-right: 50px;
+    }
 }
 
 .image 
@@ -251,7 +240,7 @@ hr
 {
     .columnheader 
 	{
-		width: 40%;
+		width: 90%;
     }
 }
 
