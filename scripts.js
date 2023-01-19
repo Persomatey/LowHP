@@ -126,7 +126,7 @@ function ParseRSSToCount(url, count)
 				}
 			});
 
-			html += `<a class="hunterlink" style="font-size: 35px; padding-right:10px;" href="/archive.html"><b>ARCHIVE</b></a>`
+			html += `<a class="hunterlink" style="font-size: 35px; padding-right:10px;" href="archive.html"><b>ARCHIVE</b></a>`
 			html += `<br><br><br>`
 			html += '</p>';
 
