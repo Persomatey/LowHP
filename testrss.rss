@@ -48,7 +48,6 @@
 				<![CDATA[
 				<h5>Links and Show Notes:</h5>
 				<h6><a href="https://www.google.com/" target="_blank">Link to a source </a></h6>
-				<h6><a href="https://www.google.com/" target="_blank">Link to a source <div style="color: #406098;">some text describing the link</div> </a></h6>
 			]]>
 			</content>
 			<itunes:image href="artworkURLLL" />
