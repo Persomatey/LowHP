@@ -121,7 +121,7 @@ function ParseRSSToCount(url, count)
 					}
 
 					// html += `<h2 style="padding-bottom:0px;">${title}</h2>`;
-					html += `<a href="${epNum}" style="padding-bottom:0px;"><h2>${title}</h2></a>`;
+					html += `<a href="/LowHP/episodes/${epNum}" style="padding-bottom:0px;"><h2>${title}</h2></a>`;
 					html += `<h3 style="text-align:left;">${pubDate}</h3>`; 
 					html += `<h4 style="text-align:left;">${description}</h4>`; 
 					html += `<iframe width=560 height=315 src="https://www.youtube.com/embed/${vidID}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`
