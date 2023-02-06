@@ -135,56 +135,65 @@ function ParseRSSToCount(url, count)
 
 function OpenNewPage(passedNum) 
 {
-	var newWindow = window.open();
-	newWindow.onload = function() 
-	{
-		var html = 
-		`
-		<!doctype html> 
-		<html style="background-color:#283850;"> 
-		
-			<head>
-				<title>Episode ${passedNum}</title>
-				<link rel="stylesheet" type="text/css" href="style.css">
-				<script src="scripts.js"></script>
-				<meta name="viewport" content="width=device-width, initial-scale=1.0">
-			</head>
-		
-			<body style="background-color:#283850;" >
-		
-				<!-- Header -->
-		
-				<script>LoadHeader()</script>
-				<div id="header"></div>
-		
-				<!-- Contents -->
-		
-				<div class="row">
-					<div class="columnside">
-						<p></p>
-					</div>
-		
-					<div class="column">
-						<script>ParseRSSThenReturnIndex("testrss.rss", ${passedNum})</script>
-						<div id="rss" style="padding-left:15px"></div>
-						<a class="hunterlink" style="font-size: 35px; padding-right:10px; padding-left:15px;" href="archive.html"><b>ARCHIVE</b></a>
-						<br><br><br>
-					</div>
-		
-					<div class="columnside">
-						<p></p>
-					</div>
-				</div>
-		
-				<!-- Footer -->
-		
-			</body>
-		</html>
-		`;
+	var str = passedNum; 
 
-		newWindow.document.write(html);
-		window.close();
-	}
+	while (str.length < 3) {
+        str = "0" + str;
+    }
+
+	window.location.href = `https://persomatey.github.io/LowHP/episodes/${str}.html`;
+
+	// Dynamic HTML approach
+	// var newWindow = window.open();
+	// newWindow.onload = function() 
+	// {
+	// 	var html = 
+	// 	`
+	// 	<!doctype html> 
+	// 	<html style="background-color:#283850;"> 
+		
+	// 		<head>
+	// 			<title>Episode ${passedNum}</title>
+	// 			<link rel="stylesheet" type="text/css" href="style.css">
+	// 			<script src="scripts.js"></script>
+	// 			<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	// 		</head>
+		
+	// 		<body style="background-color:#283850;" >
+		
+	// 			<!-- Header -->
+		
+	// 			<script>LoadHeader()</script>
+	// 			<div id="header"></div>
+		
+	// 			<!-- Contents -->
+		
+	// 			<div class="row">
+	// 				<div class="columnside">
+	// 					<p></p>
+	// 				</div>
+		
+	// 				<div class="column">
+	// 					<script>ParseRSSThenReturnIndex("testrss.rss", ${passedNum})</script>
+	// 					<div id="rss" style="padding-left:15px"></div>
+	// 					<a class="hunterlink" style="font-size: 35px; padding-right:10px; padding-left:15px;" href="archive.html"><b>ARCHIVE</b></a>
+	// 					<br><br><br>
+	// 				</div>
+		
+	// 				<div class="columnside">
+	// 					<p></p>
+	// 				</div>
+	// 			</div>
+		
+	// 			<!-- Footer -->
+		
+	// 		</body>
+	// 	</html>
+	// 	`;
+
+	// 	newWindow.document.write(html);
+	// 	window.close();
+	// }
 
 	// Try this 
 	// var newTab = window.open('about:blank', '_blank');
