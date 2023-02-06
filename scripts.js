@@ -114,8 +114,14 @@ function ParseRSSToCount(url, count)
 					let content = item.querySelector('content').textContent;
 					let ytLink = item.querySelector('ytlink').textContent;
 					let vidID = ytLink.split("v=")[1]; 
+					let epNum = title.split(":")[0];
+					while (epNum.length < 3) 
+					{
+						epNum = "0" + epNum;
+					}
 
-					html += `<h2 style="padding-bottom:0px;">${title}</h2>`;
+					// html += `<h2 style="padding-bottom:0px;">${title}</h2>`;
+					html += `<a href="${epNum}" style="padding-bottom:0px;"><h2>${title}</h2></a>`;
 					html += `<h3 style="text-align:left;">${pubDate}</h3>`; 
 					html += `<h4 style="text-align:left;">${description}</h4>`; 
 					html += `<iframe width=560 height=315 src="https://www.youtube.com/embed/${vidID}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`
