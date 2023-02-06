@@ -185,4 +185,33 @@ function OpenNewPage(passedNum)
 		newWindow.document.write(html);
 		window.close();
 	}
+
+	// Try this 
+	// var newTab = window.open('about:blank', '_blank');
+	// newTab.document.open();
+	// newTab.document.write(html);
+	// newTab.document.close();
+
+	// Or this 
+	// var newTab = window.open("", "", "toolbar=yes,scrollbars=yes,resizable=yes,top=500,left=500,width=400,height=400");
+	// newTab.document.write(html);
+	// newTab.document.close();
+
+	// Or this 
+	// var newTab;
+	// if (typeof window.open !== 'undefined') 
+	// {
+	// 	newTab = window.open();
+	// } 
+	// else 
+	// {
+	// 	newTab = window.open('about:blank', '_blank');
+	// 	newTab.document.write(html);
+	// 	newTab.document.close();
+	// }
+
+	// Or this 
+	// var newTab = window.open('', '_blank');
+	// newTab.document.write(html);
+	// newTab.document.close();
 }
