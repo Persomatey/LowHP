@@ -43,11 +43,13 @@
 			</label>
 			<br>
 			<!-- Website Episode Link -->
+			<!-- 
 			<label>
 				Website Episode Link:
-				<input type="text" id="webLink" value="https://persomatey.github.io/LowHP/" style="width: 250px;">
+				<input type="text" id="webLink" value="https://persomatey.github.io/LowHP/episodes/001.html" style="width: 250px;">
 			</label>
 			<br>
+			-->
 			<!-- YouTube Episode Link -->
 			<label>
 				YouTube Episode Link:
@@ -85,7 +87,7 @@
 				let epNum = document.getElementById("epNum").value;
 				let authors = document.getElementById("authors").value;
 				let desc = document.getElementById("desc").value;
-				let webLink = document.getElementById("webLink").value;
+				let webLink = `https://persomatey.github.io/LowHP/episodes/${PadString(epNum)}.html`;
 				let ytLink = document.getElementById("ytLink").value;
 				let content = document.getElementById("content").value;
 				let contentEnc = document.getElementById("contentEncoded").value;
@@ -93,6 +95,15 @@
 
 				Print(fileURL, title, epNum, authors, desc, webLink, ytLink, contentEnc, content, artworkURL); 
 			});
+
+			function PadString(str) 
+			{
+				while (str.length < 3) 
+				{
+					str = "0" + str;
+				}
+				return str;
+			}
 
 			function PopulateFields() 
 			{
