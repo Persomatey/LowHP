@@ -29,10 +29,12 @@
 
 				function GetEpisode()
 				{
-					const fileInput = document.querySelector("input[type='file']");
-					console.log(fileInput.value); 
-					const fileName = fileInput.value.split("\\").pop();
-					console.log(fileName);
+					var url = window.location.href;
+					console.log(url); 
+					url = url.substr(url.length - 8);
+					console.log(url);
+					url = str.substr(0, 3);
+					console.log(url); 
 					return filename; 
 				}
 			</script>
