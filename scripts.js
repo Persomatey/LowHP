@@ -19,6 +19,8 @@ function LoadFooter()
 
 function ParseRSSThenReturnIndex(url, passedNum)
 {
+	console.log(`Loading... \nurr=${url} \npassedNum=${passedNum}`); 
+
 	fetch(url)
 		.then(response => response.text())
 		.then(str => (new window.DOMParser()).parseFromString(str, "text/xml"))
