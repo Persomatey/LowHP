@@ -24,7 +24,7 @@
 
 		  	<div class="column">
 
-			<script type="text/javascript">ParseRSSThenReturnIndex("/LowHP/testrss.rss", document.querySelector("input[type='file']").fileInput.value.split("\\").pop())</script>
+			<script type="text/javascript">ParseRSSThenReturnIndex("/LowHP/testrss.rss", GetEpisode())</script>
 
 			<div id="rss" style="padding-left:15px"></div>
 
@@ -38,4 +38,14 @@
 		<!-- Footer -->
 
 	</body>
+
+	<script>
+		function GetEpisode()
+		{
+			const fileInput = document.querySelector("input[type='file']");
+			const fileName = fileInput.value.split("\\").pop();
+			console.log(fileName);
+			return filename; 
+		}
+	</script>
 </html>
