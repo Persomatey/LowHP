@@ -10,10 +10,17 @@
 		<itunes:image href="https://raw.githubusercontent.com/Persomatey/LowHP/main/images/LowHPLogo.png"/>
 		<itunes:owner>
 			<itunes:name>Low HP</itunes:name>
+			<itunes:email>thelowhp@gmail.com</itunes:email>
 		</itunes:owner>
 		<itunes:block>no</itunes:block>
-		<itunes:category text="Video Games"/>
-		<itunes:email>thelowhp@gmail.com</itunes:email>
-		<email>thelowhp@gmail.com</email>
+		<itunes:category text="Leisure">
+			<itunes:category text="Video Games"/>
+		</itunes:category>
+		<itunes:category text="Leisure">
+			<itunes:category text="Games"/>
+		</itunes:category>
+		<itunes:category text="Leisure">
+			<itunes:category text="Animation & Manga"/>
+		</itunes:category>
 	</channel>
 </rss>
