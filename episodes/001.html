@@ -30,6 +30,7 @@
 				function GetEpisode()
 				{
 					const fileInput = document.querySelector("input[type='file']");
+					console.log(fileInput); 
 					const fileName = fileInput.value.split("\\").pop();
 					console.log(fileName);
 					return filename; 
