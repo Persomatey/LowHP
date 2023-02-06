@@ -24,7 +24,7 @@
 
 		  	<div class="column">
 
-			<script type="text/javascript">ParseRSSThenReturnIndex("/LowHP/testrss.rss", document.title)</script>
+			<script type="text/javascript">ParseRSSThenReturnIndex("/LowHP/testrss.rss", document.querySelector("input[type='file']").fileInput.value.split("\\").pop())</script>
 
 			<div id="rss" style="padding-left:15px"></div>
 
