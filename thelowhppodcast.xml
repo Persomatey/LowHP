@@ -7,7 +7,7 @@
 		<itunes:author>Low HP</itunes:author>
 		<itunes:keywords>gaming, nintendo, zelda, pokemon</itunes:keywords>
 		<itunes:explicit>clean</itunes:explicit>
-		<itunes:image href="https://raw.githubusercontent.com/Persomatey/LowHP/main/images/LowHPLogo.png"/>
+		<itunes:image href="https://raw.githubusercontent.com/Persomatey/LowHP/main/images/LowHPLogoRSSSize.png"/>
 		<itunes:owner>
 			<itunes:name>Low HP</itunes:name>
 			<itunes:email>thelowhp@gmail.com</itunes:email>
@@ -26,7 +26,7 @@
 			<itunes:author>Hunter, Brad, Gerardo, Teresa </itunes:author>
 			<itunes:explicit>clean</itunes:explicit>
 			<itunes:duration>6970.33</itunes:duration>
-			<enclosure url="https://raw.githubusercontent.com/Persomatey/LowHP/main/audio/" length="223829561" type="audio/mp3" />
+			<enclosure url="https://persomatey.github.io/LowHP/audio/LowHP-Episode001-256.mp3" length="223829561" type="audio/mp3" />
 			<description>fghjfgh</description>
 			<itunes:subtitle>fghjfgh</itunes:subtitle>
 			<itunes:summary>fghjfgh</itunes:summary>
@@ -55,7 +55,7 @@
 				
 			]]>
 			</content>
-			<itunes:image href="https://raw.githubusercontent.com/Persomatey/LowHP/main/images/LowHPLogo.png" />
+			<itunes:image href="https://raw.githubusercontent.com/Persomatey/LowHP/main/images/LowHPLogoRSSSize.png" />
 		</item>
 	</channel>
 </rss>
