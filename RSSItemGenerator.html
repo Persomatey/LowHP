@@ -138,7 +138,7 @@
 				console.log(`File size: ${fileSize} bytes`);
 
 				mp3Size = fileSize; 
-				mp3Duration = duration; 
+				mp3Duration = Math.round(duration); 
 
 				button.disabled = false; 
 				document.getElementById("spinner").src = "";
