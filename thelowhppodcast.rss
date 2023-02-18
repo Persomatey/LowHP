@@ -22,5 +22,43 @@
 		<itunes:category text="Leisure">
 			<itunes:category text="Animation & Manga"/>
 		</itunes:category>
+		<item>
+			<title>1: fghjrghfj</title>
+			<itunes:title>fghjrghfj</itunes:title>
+			<itunes:episode>1</itunes:episode>
+			<itunes:author>Hunter, Brad, Gerardo, Teresa </itunes:author>
+			<itunes:explicit>clean</itunes:explicit>
+			<itunes:duration>6970.33</itunes:duration>
+			<enclosure url="https://raw.githubusercontent.com/Persomatey/LowHP/main/audio/" length="223829561" type="audio/mp3" />
+			<description>fghjfgh</description>
+			<itunes:subtitle>fghjfgh</itunes:subtitle>
+			<itunes:summary>fghjfgh</itunes:summary>
+			<pubDate>Sat, 18 Feb 2023 12:51:52 2/18/2023, 12:51:52 PM PST</pubDate>
+			<link>https://persomatey.github.io/LowHP/episodes/001.html</link>
+			<guid>https://persomatey.github.io/LowHP/episodes/001.html</guid>
+			<ytLink>https://www.youtube.com/@Low-HP</ytLink>
+			<content:encoded>
+				<![CDATA[
+				<h4>You can follow us:</h4>
+				<ul>
+				<li><a href="https://www.youtube.com/@Low-HP">YouTube</a></li>
+				</ul>
+				
+				<h4>Links and Show Notes:</h4>
+				<h5><a href="https://www.google.com/" target="_blank">Link to a source </a></h5>
+				<h5><a href="https://www.google.com/" target="_blank">Link to a source</a></h5><p>Some text describing the link</p>
+				
+			]]>
+			</content:encoded>
+			<content>
+				<![CDATA[
+				<h5>Links and Show Notes:</h5>
+				<h6><a href="https://www.google.com/" target="_blank">Link to a source </a></h6>
+				<h6><a href="https://www.google.com/" target="_blank">Link to a source <div style="color: #406098;">some text describing the link</div> </a></h6>
+				
+			]]>
+			</content>
+			<itunes:image href="https://raw.githubusercontent.com/Persomatey/LowHP/main/images/LowHPLogo.png" />
+		</item>
 	</channel>
 </rss>

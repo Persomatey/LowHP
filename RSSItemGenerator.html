@@ -12,6 +12,12 @@
 				<input type="text" id="fileURL" value="https://raw.githubusercontent.com/Persomatey/LowHP/main/audio/" style="width: 750px;">
 			</label>
 			<br>
+			<!-- File URL -->
+			<label>
+				File:
+				<input type="file" id="fileUpload" accept=".mp3"> <img id="spinner" src="" style="height:12px; width:12px; padding-right: 0px;"></img>
+			</label>
+			<br>
 			<!-- Artwork URL -->
 			<label>
 				Artwork URL:
@@ -70,7 +76,7 @@
 			<br>
 
 			<!-- Button -->
-			<button type="button" id="display-button">Display values</button>
+			<button type="button" id="display-button" disabled>Display values</button>
 		</form>
 
 		<p id="result"></p>
@@ -79,6 +85,12 @@
 		<script>
 			let displayButton = document.getElementById("display-button");
 			let resultParagraph = document.getElementById("result");
+
+			var mp3Duration; 
+			var mp3Size; 
+
+			const button = document.getElementById("display-button");
+			const fileInput = document.getElementById("fileUpload");
 
 			displayButton.addEventListener("click", function() 
 			{
@@ -94,6 +106,47 @@
 				let artworkURL = document.getElementById("artworkURL").value;
 
 				Print(fileURL, title, epNum, authors, desc, webLink, ytLink, contentEnc, content, artworkURL); 
+			});
+
+			function getMP3FileInfo(file) 
+			{
+				const reader = new FileReader();
+				reader.readAsArrayBuffer(file);
+
+				return new Promise((resolve, reject) => 
+				{
+					reader.onload = function(event) 
+					{
+						const buffer = event.target.result;
+						const context = new AudioContext();
+						context.decodeAudioData(buffer, function(decodedData) 
+						{
+							const duration = decodedData.duration.toFixed(2);
+							const fileSize = file.size;
+							resolve({ duration, fileSize });
+						});
+					};
+					reader.onerror = reject;
+				});
+			}
+
+			fileInput.addEventListener("change", async function(event) 
+			{
+				const file = event.target.files[0];
+				const { duration, fileSize } = await getMP3FileInfo(file);
+				console.log(`Duration: ${duration}s`);
+				console.log(`File size: ${fileSize} bytes`);
+
+				mp3Size = fileSize; 
+				mp3Duration = duration; 
+
+				button.disabled = false; 
+				document.getElementById("spinner").src = "";
+			});
+
+			fileInput.addEventListener("click", async function(event) 
+			{
+				document.getElementById("spinner").src = "LowHP/images/spinner.gif";
 			});
 
 			function PadString(str) 
@@ -137,13 +190,14 @@
 
 			async function Print(fileURL, title, epNum, authors, desc, webLink, ytLink, contentEnc, content, artworkURL)
 			{
-				const response = await fetch(fileURL);
-				const audio = new Audio();
-				audio.src = fileURL;
+				// const response = await fetch(fileURL);
+				// const audio = new Audio();
+				// audio.src = file;
 				
-				audio.onloadedmetadata = function() {
-					const duration = parseInt(audio.duration);
-					const fileSize = response.headers.get('Content-Length');
+				// audio.onloadedmetadata = function() 
+				// {
+					// const duration = parseInt(audio.duration);
+					// const fileSize = response.headers.get('Content-Length');
 
 					let newContEnc = contentEnc.replaceAll("\n", "\n &nbsp &nbsp &nbsp "); 
 					let newCont = content.replaceAll("\n", "\n &nbsp &nbsp &nbsp "); 
@@ -155,8 +209,8 @@
 					str += ` &nbsp <itunes:episode>${epNum}</itunes:episode>\n`;
 					str += ` &nbsp <itunes:author>${authors}</itunes:author>\n`;
 					str += ` &nbsp <itunes:explicit>clean</itunes:explicit>\n`;
-					str += ` &nbsp <itunes:duration>${duration}</itunes:duration>\n`;
-					str += ` &nbsp <enclosure url="${fileURL}" length="${fileSize}" type="audio/mp3" />\n`;
+					str += ` &nbsp <itunes:duration>${mp3Duration}</itunes:duration>\n`;
+					str += ` &nbsp <enclosure url="${fileURL}" length="${mp3Size}" type="audio/mp3" />\n`;
 					str += ` &nbsp <description>${desc}</description>\n`;
 					str += ` &nbsp <itunes:subtitle>${desc}</itunes:subtitle>\n`;
 					str += ` &nbsp <itunes:summary>${desc}</itunes:summary>\n`;
@@ -185,7 +239,7 @@
 					str = str.replaceAll('\n', '<br>'); 
 
 					resultParagraph.innerHTML = str;
-				}
+				// }
 			}
 		</script>
 	</body>
