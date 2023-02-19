@@ -42,17 +42,13 @@
 				</ul>
 				
 				<h4>Links and Show Notes:</h4>
-				<h5><a href="https://www.google.com/" target="_blank">Link to a source </a></h5>
-				<h5><a href="https://www.google.com/" target="_blank">Link to a source</a></h5><p>Some text describing the link</p>
-				
+				<h5><a href="https://www.youtube.com/live/yMdUSVSEp7U?feature=share" target="_blank">Nintendo February 2023 Direct</a></h5>
 			]]>
 			</content:encoded>
 			<content>
 				<![CDATA[
 				<h5>Links and Show Notes:</h5>
-				<h6><a href="https://www.google.com/" target="_blank">Link to a source </a></h6>
-				<h6><a href="https://www.google.com/" target="_blank">Link to a source <div style="color: #406098;">some text describing the link</div> </a></h6>
-				
+				<h6><a href="https://www.youtube.com/live/yMdUSVSEp7U?feature=share" target="_blank">Nintendo February 2023 Direct</a></h6>
 			]]>
 			</content>
 			<itunes:image href="https://raw.githubusercontent.com/Persomatey/LowHP/main/images/LowHPLogoRSSSize.png" />
