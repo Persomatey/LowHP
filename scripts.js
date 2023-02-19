@@ -9,14 +9,6 @@ function LoadHeader(pre)
 	.then(text => document.getElementById('header').innerHTML = text);
 }
 
-function LoadFooter()
-{
-	console.log("Loading Footer"); 
-
-	fetch('footer.html')
-	.then(response => response.text())
-}
-
 function ParseRSSThenReturnIndex(url, passedNum)
 {
 	fetch(url)
@@ -180,7 +172,7 @@ function OpenNewPage(passedNum)
 	// 				</div>
 		
 	// 				<div class="column">
-	// 					<script>ParseRSSThenReturnIndex("testrss.rss", ${passedNum})</script>
+	// 					<script>ParseRSSThenReturnIndex("thelowhppodcast.rss", ${passedNum})</script>
 	// 					<div id="rss" style="padding-left:15px"></div>
 	// 					<a class="hunterlink" style="font-size: 35px; padding-right:10px; padding-left:15px;" href="archive.html"><b>ARCHIVE</b></a>
 	// 					<br><br><br>
