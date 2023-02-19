@@ -7,10 +7,10 @@
 		<h1>Input Fields</h1>
 		<form>
 			<!-- File URL -->
-			<label>
+			<!-- <label>
 				File URL:
 				<input type="text" id="fileURL" value="https://persomatey.github.io/LowHP/audio/LowHP-Episode001-256.mp3" style="width: 750px;">
-			</label>
+			</label> -->
 			<br>
 			<!-- File URL -->
 			<label>
@@ -94,7 +94,7 @@
 
 			displayButton.addEventListener("click", function() 
 			{
-				let fileURL = document.getElementById("fileURL").value;
+				// let fileURL = document.getElementById("fileURL").value;
 				let title = document.getElementById("title").value;
 				let epNum = document.getElementById("epNum").value;
 				let authors = document.getElementById("authors").value;
@@ -104,6 +104,7 @@
 				let content = document.getElementById("content").value;
 				let contentEnc = document.getElementById("contentEncoded").value;
 				let artworkURL = document.getElementById("artworkURL").value;
+				let fileURL = `https://persomatey.github.io/LowHP/audio/${PadString(epNum)}.mp3`;
 
 				Print(fileURL, title, epNum, authors, desc, webLink, ytLink, contentEnc, content, artworkURL); 
 			});
