@@ -33,8 +33,6 @@ function ParseRSSThenReturnIndex(url, passedNum)
 			let ytLink = item.querySelector('ytlink').textContent;
 			let vidID = ytLink.split("v=")[1]; 
 
-			console.log(`Displaying content for episode ${item.querySelector('title').textContent} (vidID=${vidID})`); 
-
 			html += `<h2 style="padding-bottom:0px;">${title}</h2>`;
 			html += `<h3 style="text-align:left;">${pubDate}</h3>`; 
 			html += `<h4 style="text-align:left;">${description}</h4>`; 
