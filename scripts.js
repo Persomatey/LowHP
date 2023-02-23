@@ -62,6 +62,10 @@ function ParseAllRSS(url)
 				let title = item.querySelector('title').textContent;
 				let epNum = title.split(":")[0];
 
+				let ytLink = item.querySelector('ytlink').textContent;
+				let vidID = ytLink.split("v=")[1]; 
+				console.log(checkVideoPrivacyStatus(vidID)); 
+
 				// Pad epNum 
 				while (epNum.length < 3) 
 				{
@@ -77,6 +81,7 @@ function ParseAllRSS(url)
 		})
 		.then(text => document.getElementById('rss').innerHTML = text);
 }
+
 
 function ParseRSSToCount(url, count) 
 {
@@ -105,6 +110,8 @@ function ParseRSSToCount(url, count)
 					let vidID = ytLink.split("v=")[1]; 
 					let epNum = title.split(":")[0];
 
+					console.log(checkVideoPrivacyStatus(vidID)); 
+
 					// Pad epNum 
 					while (epNum.length < 3) 
 					{
@@ -129,3 +136,30 @@ function ParseRSSToCount(url, count)
 		.then(text => document.getElementById('rss').innerHTML = text);
 }
 
+function checkVideoPrivacyStatus(vidID) 
+{
+	// Your Google API key goes here
+	const API_KEY = vidID;
+  
+	// Build the API request URL
+	const apiUrl = `https://www.googleapis.com/youtube/v3/videos?id=${vidID}&key=${API_KEY}&part=status`;
+  
+	// Make the API request
+	fetch(apiUrl)
+	  .then(response => response.json())
+	  .then(data => {
+		// Check the privacy status of the video
+		const privacyStatus = data.items[0].status.privacyStatus;
+		if (privacyStatus === 'public') 
+		{
+		  console.log('Video is public');
+		  return true;
+		} 
+		else 
+		{
+		  console.log('Video is private');
+		  return false;
+		}
+	  })
+	  .catch(error => console.error(error));
+  }
