@@ -79,8 +79,6 @@ function ParseAllRSS(url)
 					const privacyStatus = data.items[0].status.privacyStatus;
 					if (privacyStatus === 'public') 
 					{
-
-
 						// Pad epNum 
 						while (epNum.length < 3) 
 						{
@@ -90,20 +88,8 @@ function ParseAllRSS(url)
 						html += `<a href="/LowHP/episodes/${epNum}"> <h2 style="padding-bottom:0px;">${title}</h2></a>`;
 						html += `<br>`
 					}
-					else 
-					{
-						console.log(`Video ${vidID} is private`);
-					}
-				})
-				.catch(error => 
-				{
-					console.log(`Video ${vidID} is data not found \n${error}`); 
 				});
 			})
-			.catch(error => 
-			{
-				console.log(`Video ${vidID} is data not found \n${error}`); 
-			});
 
 			html += '</p>';
 			return html;
@@ -134,7 +120,6 @@ function ParseRSSToCount(url, count)
 				if (n <= count)
 				{
 					// Make the API request
-					console.log(`Video ${vidID} is public`);
 					let title = item.querySelector('title').textContent;
 					let pubDate = item.querySelector('pubDate').textContent;
 					let description = item.querySelector('description').textContent;
@@ -166,14 +151,6 @@ function ParseRSSToCount(url, count)
 							html += `${content}`;
 							html += `<br><br>`
 						} 
-						else 
-						{
-							console.log(`Video ${vidID} is private`);
-						}
-					})
-					.catch(error => 
-					{
-						console.log(`Video ${vidID} is data not found \n${error}`); 
 					});
 				}
 			});
