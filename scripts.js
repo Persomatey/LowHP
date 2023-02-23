@@ -82,14 +82,21 @@ function ParseAllRSS(url)
 
 					if (privacyStatus == `public`) 
 					{
+						console.log(`if 1 privacyStatus=${privacyStatus}`); 
+
 						// Pad epNum 
 						while (epNum.length < 3) 
 						{
+							console.log(`if 2 privacyStatus=${privacyStatus}`); 
 							epNum = "0" + epNum;
+							console.log(`if 3 privacyStatus=${privacyStatus}`); 
 						}
 
+						console.log(`if 4 privacyStatus=${privacyStatus}`); 
 						html += `<a href="/LowHP/episodes/${epNum}"> <h2 style="padding-bottom:0px;">${title}</h2></a>`;
+						console.log(`if 5 privacyStatus=${privacyStatus} \n${html}`); 
 						html += `<br>`
+						console.log(`if 6 privacyStatus=${privacyStatus} \n${html}`); 
 					}
 					else
 					{
@@ -148,18 +155,29 @@ function ParseRSSToCount(url, count)
 
 						if (privacyStatus == `public`) 
 						{
+							console.log(`if 1 privacyStatus=${privacyStatus}`); 
+
 							// Pad epNum 
 							while (epNum.length < 3) 
-							{
-								epNum = "0" + epNum;
-							}
+						{
+							console.log(`if 2 privacyStatus=${privacyStatus}`); 
+							epNum = "0" + epNum;
+							console.log(`if 3 privacyStatus=${privacyStatus}`); 
+						}
 		
+							console.log(`if 4 privacyStatus=${privacyStatus} \n${html}`); 
 							html += `<a href="/LowHP/episodes/${epNum}" style="padding-bottom:0px;"><h2>${title}</h2></a>`;
+							console.log(`if 5 privacyStatus=${privacyStatus} \n${html}`); 
 							html += `<h3 style="text-align:left;">${pubDate}</h3>`; 
+							console.log(`if 6 privacyStatus=${privacyStatus} \n${html}`); 
 							html += `<h4 style="text-align:left;">${description}</h4>`; 
+							console.log(`if 7 privacyStatus=${privacyStatus} \n${html}`); 
 							html += `<iframe width=560 height=315 src="https://www.youtube.com/embed/${vidID}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`
+							console.log(`if 8 privacyStatus=${privacyStatus} \n${html}`); 
 							html += `${content}`;
+							console.log(`if 9 privacyStatus=${privacyStatus} \n${html}`); 
 							html += `<br><br>`
+							console.log(`if 10 privacyStatus=${privacyStatus} \n${html}`); 
 						} 
 						else
 						{
