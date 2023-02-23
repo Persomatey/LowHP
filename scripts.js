@@ -138,10 +138,8 @@ function ParseRSSToCount(url, count)
 
 function checkVideoPrivacyStatus(vidID) 
 {
-	// Your Google API key goes here
-	const API_KEY = vidID;
-  
 	// Build the API request URL
+	const API_KEY = "AIzaSyAmxEUOuRtdZSBFHGK-8y3coK711xQAYNE"; 
 	const apiUrl = `https://www.googleapis.com/youtube/v3/videos?id=${vidID}&key=${API_KEY}&part=status`;
   
 	// Make the API request
