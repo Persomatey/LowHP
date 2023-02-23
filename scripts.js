@@ -64,6 +64,11 @@ function ParseAllRSS(url)
 			items.forEach(item => 
 			{
 				// Make the API request
+				let title = item.querySelector('title').textContent;
+				let epNum = title.split(":")[0];
+				let ytLink = item.querySelector('ytlink').textContent;
+				// let vidID = ytLink.split("v=")[1]; 
+				let vidID = GetYouTubeIDFromURL(ytLink); 
 				const apiUrl = `https://www.googleapis.com/youtube/v3/videos?id=${vidID}&key=${API_KEY}&part=status`;
 
 				fetch(apiUrl)
@@ -74,13 +79,7 @@ function ParseAllRSS(url)
 					const privacyStatus = data.items[0].status.privacyStatus;
 					if (privacyStatus === 'public') 
 					{
-						let title = item.querySelector('title').textContent;
-						let epNum = title.split(":")[0];
 
-						let ytLink = item.querySelector('ytlink').textContent;
-						// let vidID = ytLink.split("v=")[1]; 
-						let vidID = GetYouTubeIDFromURL(ytLink); 
-						console.log(`${checkVideoPrivacyStatus(vidID)}`); 
 
 						// Pad epNum 
 						while (epNum.length < 3) 
@@ -135,6 +134,15 @@ function ParseRSSToCount(url, count)
 				if (n <= count)
 				{
 					// Make the API request
+					console.log(`Video ${vidID} is public`);
+					let title = item.querySelector('title').textContent;
+					let pubDate = item.querySelector('pubDate').textContent;
+					let description = item.querySelector('description').textContent;
+					let content = item.querySelector('content').textContent;
+					let ytLink = item.querySelector('ytlink').textContent;
+					// let vidID = ytLink.split("v=")[1]; 
+					let vidID = GetYouTubeIDFromURL(ytLink); 
+					let epNum = title.split(":")[0];
 					const apiUrl = `https://www.googleapis.com/youtube/v3/videos?id=${vidID}&key=${API_KEY}&part=status`;
 					
 					fetch(apiUrl)
@@ -145,18 +153,6 @@ function ParseRSSToCount(url, count)
 						const privacyStatus = data.items[0].status.privacyStatus;
 						if (privacyStatus === 'public') 
 						{
-							console.log(`Video ${vidID} is public`);
-							let title = item.querySelector('title').textContent;
-							let pubDate = item.querySelector('pubDate').textContent;
-							let description = item.querySelector('description').textContent;
-							let content = item.querySelector('content').textContent;
-							let ytLink = item.querySelector('ytlink').textContent;
-							// let vidID = ytLink.split("v=")[1]; 
-							let vidID = GetYouTubeIDFromURL(ytLink); 
-							let epNum = title.split(":")[0];
-		
-							console.log(`${checkVideoPrivacyStatus(vidID)}`); 
-		
 							// Pad epNum 
 							while (epNum.length < 3) 
 							{
