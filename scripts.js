@@ -37,6 +37,8 @@ function ParseRSSThenReturnIndex(url, passedNum)
 			let ytLink = item.querySelector('ytlink').textContent;
 			let vidID = url.split("v=")[1]; 
 
+			console.log(`Displaying content for episode ${item.querySelector('title').textContent} (vidID=${vidID})`); 
+
 			html += `<h2 style="padding-bottom:0px;">${title}</h2>`;
 			html += `<h3 style="text-align:left;">${pubDate}</h3>`; 
 			html += `<h4 style="text-align:left;">${description}</h4>`; 
@@ -107,12 +109,13 @@ function ParseRSSToCount(url, count)
 					let ytLink = item.querySelector('ytlink').textContent;
 					let vidID = ytLink.split("v=")[1]; 
 					let epNum = title.split(":")[0];
+
+					// Pad epNum 
 					while (epNum.length < 3) 
 					{
 						epNum = "0" + epNum;
 					}
 
-					// html += `<h2 style="padding-bottom:0px;">${title}</h2>`;
 					html += `<a href="/LowHP/episodes/${epNum}" style="padding-bottom:0px;"><h2>${title}</h2></a>`;
 					html += `<h3 style="text-align:left;">${pubDate}</h3>`; 
 					html += `<h4 style="text-align:left;">${description}</h4>`; 
