@@ -47,6 +47,7 @@ function ParseRSSThenReturnIndex(url, passedNum)
 
 function ParseAllRSS(url) 
 {
+	// Fetch RSS 
 	fetch(url)
 		.then(response => response.text())
 		.then(str => (new window.DOMParser()).parseFromString(str, "text/xml"))
@@ -58,25 +59,50 @@ function ParseAllRSS(url)
 			html += '<h1>' + "ARCHIVE:" + '</h1>';
 			html += '<p>';
 
-			items.forEach(item => {
-				let title = item.querySelector('title').textContent;
-				let epNum = title.split(":")[0];
-
-				let ytLink = item.querySelector('ytlink').textContent;
-				let vidID = ytLink.split("v=")[1]; 
-				console.log(`${checkVideoPrivacyStatus(vidID)}`); 
-
-				// Pad epNum 
-				while (epNum.length < 3) 
+			// Loop through all items 
+			items.forEach(item => 
+			{
+				// Make the API request
+				fetch(apiUrl)
+				.then(response => response.json())
+				.then(data => 
 				{
-					epNum = "0" + epNum;
-				}
+					// Check the privacy status of the video
+					const privacyStatus = data.items[0].status.privacyStatus;
+					if (privacyStatus === 'public') 
+					{
+						let title = item.querySelector('title').textContent;
+						let epNum = title.split(":")[0];
 
-				html += `<a href="/LowHP/episodes/${epNum}"> <h2 style="padding-bottom:0px;">${title}</h2></a>`;
-				html += `<br>`
+						let ytLink = item.querySelector('ytlink').textContent;
+						let vidID = ytLink.split("v=")[1]; 
+						console.log(`${checkVideoPrivacyStatus(vidID)}`); 
+
+						// Pad epNum 
+						while (epNum.length < 3) 
+						{
+							epNum = "0" + epNum;
+						}
+
+						html += `<a href="/LowHP/episodes/${epNum}"> <h2 style="padding-bottom:0px;">${title}</h2></a>`;
+						html += `<br>`
+					}
+					else 
+					{
+						console.log(`Video ${vidID} is private`);
+					}
+				})
+				.catch(error => 
+				{
+					console.log(`Video ${vidID} is data not found \n${error}`); 
+				});
+			})
+			.catch(error => 
+			{
+				console.log(`Video ${vidID} is data not found \n${error}`); 
 			});
-			html += '</p>';
 
+			html += '</p>';
 			return html;
 		})
 		.then(text => document.getElementById('rss').innerHTML = text);
@@ -85,6 +111,7 @@ function ParseAllRSS(url)
 
 function ParseRSSToCount(url, count) 
 {
+	// Fetch RSS 
 	fetch(url)
 		.then(response => response.text())
 		.then(str => (new window.DOMParser()).parseFromString(str, "text/xml"))
@@ -97,33 +124,55 @@ function ParseRSSToCount(url, count)
 			html += '<h1>' + "LATEST EPISODES:" + '</h1>';
 			html += '<p>';
 
-			items.forEach(item => {
+			// Loop through all items 
+			items.forEach(item => 
+			{
 				n++; 
-				
+			
 				if (n <= count)
 				{
-					let title = item.querySelector('title').textContent;
-					let pubDate = item.querySelector('pubDate').textContent;
-					let description = item.querySelector('description').textContent;
-					let content = item.querySelector('content').textContent;
-					let ytLink = item.querySelector('ytlink').textContent;
-					let vidID = ytLink.split("v=")[1]; 
-					let epNum = title.split(":")[0];
-
-					console.log(`${checkVideoPrivacyStatus(vidID)}`); 
-
-					// Pad epNum 
-					while (epNum.length < 3) 
+					// Make the API request
+					fetch(apiUrl)
+					.then(response => response.json())
+					.then(data => 
 					{
-						epNum = "0" + epNum;
-					}
-
-					html += `<a href="/LowHP/episodes/${epNum}" style="padding-bottom:0px;"><h2>${title}</h2></a>`;
-					html += `<h3 style="text-align:left;">${pubDate}</h3>`; 
-					html += `<h4 style="text-align:left;">${description}</h4>`; 
-					html += `<iframe width=560 height=315 src="https://www.youtube.com/embed/${vidID}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`
-					html += `${content}`;
-					html += `<br><br>`
+						// Check the privacy status of the video
+						const privacyStatus = data.items[0].status.privacyStatus;
+						if (privacyStatus === 'public') 
+						{
+							console.log(`Video ${vidID} is public`);
+							let title = item.querySelector('title').textContent;
+							let pubDate = item.querySelector('pubDate').textContent;
+							let description = item.querySelector('description').textContent;
+							let content = item.querySelector('content').textContent;
+							let ytLink = item.querySelector('ytlink').textContent;
+							let vidID = ytLink.split("v=")[1]; 
+							let epNum = title.split(":")[0];
+		
+							console.log(`${checkVideoPrivacyStatus(vidID)}`); 
+		
+							// Pad epNum 
+							while (epNum.length < 3) 
+							{
+								epNum = "0" + epNum;
+							}
+		
+							html += `<a href="/LowHP/episodes/${epNum}" style="padding-bottom:0px;"><h2>${title}</h2></a>`;
+							html += `<h3 style="text-align:left;">${pubDate}</h3>`; 
+							html += `<h4 style="text-align:left;">${description}</h4>`; 
+							html += `<iframe width=560 height=315 src="https://www.youtube.com/embed/${vidID}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`
+							html += `${content}`;
+							html += `<br><br>`
+						} 
+						else 
+						{
+							console.log(`Video ${vidID} is private`);
+						}
+					})
+					.catch(error => 
+					{
+						console.log(`Video ${vidID} is data not found \n${error}`); 
+					});
 				}
 			});
 
@@ -135,34 +184,3 @@ function ParseRSSToCount(url, count)
 		})
 		.then(text => document.getElementById('rss').innerHTML = text);
 }
-
-function checkVideoPrivacyStatus(vidID) 
-{
-	console.log(`checking privacy status for ${vidID}`); 
-
-	// Build the API request URL
-	const API_KEY = "AIzaSyAmxEUOuRtdZSBFHGK-8y3coK711xQAYNE"; 
-	const apiUrl = `https://www.googleapis.com/youtube/v3/videos?id=${vidID}&key=${API_KEY}&part=status`;
-  
-	// Make the API request
-	fetch(apiUrl)
-	  .then(response => response.json())
-	  .then(data => {
-		// Check the privacy status of the video
-		const privacyStatus = data.items[0].status.privacyStatus;
-		if (privacyStatus === 'public') 
-		{
-		  console.log(`Video ${vidID} is public`);
-		  return true;
-		} 
-		else 
-		{
-		  console.log(`Video ${vidID} is private`);
-		  return false;
-		}
-	  })
-	  .catch(error => {
-		console.error(error); 
-		return false; 
-		});
-  }
