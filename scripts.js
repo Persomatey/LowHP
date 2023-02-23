@@ -64,7 +64,7 @@ function ParseAllRSS(url)
 
 				let ytLink = item.querySelector('ytlink').textContent;
 				let vidID = ytLink.split("v=")[1]; 
-				console.log(checkVideoPrivacyStatus(vidID)); 
+				console.log(`${checkVideoPrivacyStatus(vidID)}`); 
 
 				// Pad epNum 
 				while (epNum.length < 3) 
@@ -110,7 +110,7 @@ function ParseRSSToCount(url, count)
 					let vidID = ytLink.split("v=")[1]; 
 					let epNum = title.split(":")[0];
 
-					console.log(checkVideoPrivacyStatus(vidID)); 
+					console.log(`${checkVideoPrivacyStatus(vidID)}`); 
 
 					// Pad epNum 
 					while (epNum.length < 3) 
@@ -152,12 +152,12 @@ function checkVideoPrivacyStatus(vidID)
 		const privacyStatus = data.items[0].status.privacyStatus;
 		if (privacyStatus === 'public') 
 		{
-		  console.log('Video is public');
+		  console.log(`Video ${vidID} is public`);
 		  return true;
 		} 
 		else 
 		{
-		  console.log('Video is private');
+		  console.log(`Video ${vidID} is private`);
 		  return false;
 		}
 	  })
