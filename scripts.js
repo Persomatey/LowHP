@@ -60,18 +60,21 @@ function ParseAllRSS(url)
 		{
 			let html = '';
 			let channel = data.querySelector('channel');
-			let channelTitle = channel.querySelector('title').textContent;
 			let items = channel.querySelectorAll('item');
 			html += '<h1>' + "ARCHIVE:" + '</h1>';
 			html += '<p>';
-			// let channelNum = title.split(":")[0];
 
 			items.forEach(item => {
 				let title = item.querySelector('title').textContent;
-				let episodeNum = title.split(":")[0]; 
-				let url = `episodes/${episodeNum}.html` 
+				let epNum = title.split(":")[0];
 
-				html += `<A href="#" onclick="OpenNewPage('${title.split(":")[0]}')"> <h2 style="padding-bottom:0px;">${title}</h2></A>`;
+				// Pad epNum 
+				while (epNum.length < 3) 
+				{
+					epNum = "0" + epNum;
+				}
+
+				html += `<a href="/LowHP/episodes/${epNum}"> <h2 style="padding-bottom:0px;">${title}</h2></a>`;
 				html += `<br>`
 			});
 			html += '</p>';
@@ -91,7 +94,6 @@ function ParseRSSToCount(url, count)
 			let n = 0; 
 			let html = '';
 			let channel = data.querySelector('channel');
-			let channelTitle = channel.querySelector('title').textContent;
 			let items = channel.querySelectorAll('item');
 			html += '<h1>' + "LATEST EPISODES:" + '</h1>';
 			html += '<p>';
@@ -102,7 +104,6 @@ function ParseRSSToCount(url, count)
 				if (n <= count)
 				{
 					let title = item.querySelector('title').textContent;
-					let link = item.querySelector('link').textContent;
 					let pubDate = item.querySelector('pubDate').textContent;
 					let description = item.querySelector('description').textContent;
 					let content = item.querySelector('content').textContent;
@@ -134,94 +135,3 @@ function ParseRSSToCount(url, count)
 		.then(text => document.getElementById('rss').innerHTML = text);
 }
 
-function OpenNewPage(passedNum) 
-{
-	var str = passedNum; 
-
-	while (str.length < 3) {
-        str = "0" + str;
-    }
-
-	window.location.href = `https://persomatey.github.io/LowHP/episodes/${str}.html`;
-
-	// Dynamic HTML approach
-	// var newWindow = window.open();
-	// newWindow.onload = function() 
-	// {
-	// 	var html = 
-	// 	`
-	// 	<!doctype html> 
-	// 	<html style="background-color:#283850;"> 
-		
-	// 		<head>
-	// 			<title>Episode ${passedNum}</title>
-	// 			<link rel="stylesheet" type="text/css" href="style.css">
-	// 			<script src="scripts.js"></script>
-	// 			<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	// 		</head>
-		
-	// 		<body style="background-color:#283850;" >
-		
-	// 			<!-- Header -->
-		
-	// 			<script>LoadHeader()</script>
-	// 			<div id="header"></div>
-		
-	// 			<!-- Contents -->
-		
-	// 			<div class="row">
-	// 				<div class="columnside">
-	// 					<p></p>
-	// 				</div>
-		
-	// 				<div class="column">
-	// 					<script>ParseRSSThenReturnIndex("thelowhppodcast.rss", ${passedNum})</script>
-	// 					<div id="rss" style="padding-left:15px"></div>
-	// 					<a class="hunterlink" style="font-size: 35px; padding-right:10px; padding-left:15px;" href="archive.html"><b>ARCHIVE</b></a>
-	// 					<br><br><br>
-	// 				</div>
-		
-	// 				<div class="columnside">
-	// 					<p></p>
-	// 				</div>
-	// 			</div>
-		
-	// 			<!-- Footer -->
-		
-	// 		</body>
-	// 	</html>
-	// 	`;
-
-	// 	newWindow.document.write(html);
-	// 	window.close();
-	// }
-
-	// Try this 
-	// var newTab = window.open('about:blank', '_blank');
-	// newTab.document.open();
-	// newTab.document.write(html);
-	// newTab.document.close();
-
-	// Or this 
-	// var newTab = window.open("", "", "toolbar=yes,scrollbars=yes,resizable=yes,top=500,left=500,width=400,height=400");
-	// newTab.document.write(html);
-	// newTab.document.close();
-
-	// Or this 
-	// var newTab;
-	// if (typeof window.open !== 'undefined') 
-	// {
-	// 	newTab = window.open();
-	// } 
-	// else 
-	// {
-	// 	newTab = window.open('about:blank', '_blank');
-	// 	newTab.document.write(html);
-	// 	newTab.document.close();
-	// }
-
-	// Or this 
-	// var newTab = window.open('', '_blank');
-	// newTab.document.write(html);
-	// newTab.document.close();
-}
