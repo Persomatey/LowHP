@@ -69,6 +69,7 @@ function ParseAllRSS(url)
 				let ytLink = item.querySelector('ytlink').textContent;
 				// let vidID = ytLink.split("v=")[1]; 
 				let vidID = GetYouTubeIDFromURL(ytLink); 
+				const API_KEY = "AIzaSyAmxEUOuRtdZSBFHGK-8y3coK711xQAYNE"; 
 				const apiUrl = `https://www.googleapis.com/youtube/v3/videos?id=${vidID}&key=${API_KEY}&part=status`;
 
 				fetch(apiUrl)
@@ -128,6 +129,7 @@ function ParseRSSToCount(url, count)
 					// let vidID = ytLink.split("v=")[1]; 
 					let vidID = GetYouTubeIDFromURL(ytLink); 
 					let epNum = title.split(":")[0];
+					const API_KEY = "AIzaSyAmxEUOuRtdZSBFHGK-8y3coK711xQAYNE"; 
 					const apiUrl = `https://www.googleapis.com/youtube/v3/videos?id=${vidID}&key=${API_KEY}&part=status`;
 					
 					fetch(apiUrl)
