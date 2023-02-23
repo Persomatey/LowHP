@@ -77,7 +77,8 @@ function ParseAllRSS(url)
 				.then(data => 
 				{
 					// Check the privacy status of the video
-					const privacyStatus = data.items[0].status.privacyStatus;
+					var privacyStatus = (data.items.length > 0) ? data.items[0].status.privacyStatus : false; 
+					
 					if (privacyStatus === 'public') 
 					{
 						// Pad epNum 
@@ -137,7 +138,8 @@ function ParseRSSToCount(url, count)
 					.then(data => 
 					{
 						// Check the privacy status of the video
-						const privacyStatus = data.items[0].status.privacyStatus;
+						var privacyStatus = (data.items.length > 0) ? data.items[0].status.privacyStatus : false; 
+
 						if (privacyStatus === 'public') 
 						{
 							// Pad epNum 
