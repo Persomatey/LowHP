@@ -161,5 +161,8 @@ function checkVideoPrivacyStatus(vidID)
 		  return false;
 		}
 	  })
-	  .catch(error => console.error(error));
+	  .catch(error => {
+		console.error(error); 
+		return false; 
+		});
   }
