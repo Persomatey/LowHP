@@ -20,6 +20,59 @@
 			<itunes:category text="Games"/>
 		</itunes:category>
 		<item>
+		<title>2: Tears of the Kingdom: Everything We Know</title>
+		<itunes:title>Tears of the Kingdom: Everything We Know</itunes:title>
+		<itunes:episode>2</itunes:episode>
+		<itunes:author>Hunter, Brad</itunes:author>
+		<itunes:explicit>clean</itunes:explicit>
+		<itunes:duration>8699</itunes:duration>
+		<enclosure url="https://persomatey.github.io/LowHP/audio/002.mp3" length="97004840" type="audio/mp3" />
+		<description>We discuss everything we know about Tears of the Kingdom so far; all footage shown, gameplay patents, and theories. </description>
+		<itunes:subtitle>We discuss everything we know about Tears of the Kingdom so far; all footage shown, gameplay patents, and theories. </itunes:subtitle>
+		<itunes:summary>We discuss everything we know about Tears of the Kingdom so far; all footage shown, gameplay patents, and theories. </itunes:summary>
+		<pubDate>Wed, 22 Feb 2023 17:17:44 2/22/2023, 5:17:44 PM PST</pubDate>
+		<link>https://persomatey.github.io/LowHP/episodes/002.html</link>
+		<guid>https://persomatey.github.io/LowHP/episodes/002.html</guid>
+		<ytlink>https://youtu.be/r8bgg8w_UjI</ytlink>
+		<content:encoded>
+			<![CDATA[
+			<h4>You can follow us:</h4>
+			<ul>
+			<li><a href="https://www.youtube.com/@Low-HP">YouTube</a></li>
+			<li><a href="https://podcasts.apple.com/us/podcast/the-low-hp-podcast/id1672813015">Apple Podcasts</a></li>
+			<li><a href="https://open.spotify.com/show/64YjEAZrGdgkQk16i88Jtf">Spotify</a></li>
+			<li><a href="https://persomatey.github.io/LowHP/thelowhppodcast.rss">RSS</a></li>
+			</ul>
+			
+			<h4>Links and Show Notes:</h4>
+			<h5><a href="https://www.youtube.com/watch?v=3fr1Z07AV00" target="_blank">First Look Trailer</a></h5>
+			<h5><a href="https://www.youtube.com/watch?v=Pi-MRZBP91I" target="_blank">E3 2021 Teaser</a></h5>
+			<h5><a href="https://www.youtube.com/watch?v=f_vgseuw_o8" target="_blank">Release Timing Update</a></h5>
+			<h5><a href="https://www.youtube.com/watch?v=2SNF4M_v7wc" target="_blank">Official Trailer #1</a></h5>
+			<h5><a href="https://www.youtube.com/watch?v=fYZuiFDQwQw" target="_blank">Official Trailer #2</a></h5>
+			<h5><a href="https://twitter.com/ZeldaOfficialJP" target="_blank">Zelda Japan Twitter</a></h5>
+			<h5><a href="https://www.nintendo.co.uk/Games/Nintendo-Switch-games/The-Legend-of-Zelda-Tears-of-the-Kingdom-1576884.html#Overview" target="_blank">Zelda UK Website</a></h5>
+			<h5><a href="https://www.nintendo.co.jp/zelda/totk/index.html" target="_blank">Zelda Japan Website</a></h5>
+			<h5><a href="https://archive.org/details/TheLegendOfZeldaBreathOfTheWildCreatingAChampion/mode/2up" target="_blank">Tears of the Kingdom Patents</a></h5>
+		]]>
+		</content:encoded>
+		<content>
+			<![CDATA[
+			<h5>Links and Show Notes:</h5>
+			<h6><a href="https://www.youtube.com/watch?v=3fr1Z07AV00" target="_blank">First Look Trailer</a></h6>
+			<h6><a href="https://www.youtube.com/watch?v=Pi-MRZBP91I" target="_blank">E3 2021 Teaser</a></h6>
+			<h6><a href="https://www.youtube.com/watch?v=f_vgseuw_o8" target="_blank">Release Timing Update</a></h6>
+			<h6><a href="https://www.youtube.com/watch?v=2SNF4M_v7wc" target="_blank">Official Trailer #1</a></h6>
+			<h6><a href="https://www.youtube.com/watch?v=fYZuiFDQwQw" target="_blank">Official Trailer #2</a></h6>
+			<h6><a href="https://twitter.com/ZeldaOfficialJP" target="_blank">Zelda Japan Twitter</a></h6>
+			<h6><a href="https://www.nintendo.co.uk/Games/Nintendo-Switch-games/The-Legend-of-Zelda-Tears-of-the-Kingdom-1576884.html#Overview" target="_blank">Zelda UK Website</a></h5>
+			<h6><a href="https://www.nintendo.co.jp/zelda/totk/index.html" target="_blank">Zelda Japan Website</a></h5>
+			<h6><a href="https://archive.org/details/TheLegendOfZeldaBreathOfTheWildCreatingAChampion/mode/2up" target="_blank">Tears of the Kingdom Patents</a></h6>
+		]]>
+		</content>
+		<itunes:image href="https://raw.githubusercontent.com/Persomatey/LowHP/main/images/LowHPLogoRSSSize.png" />
+		</item>
+		<item>
 			<title>1: February Direct Discussion</title>
 			<itunes:title>February Direct Discussion</itunes:title>
 			<itunes:episode>1</itunes:episode>
