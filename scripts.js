@@ -77,10 +77,10 @@ function ParseAllRSS(url)
 				.then(data => 
 				{
 					// Check the privacy status of the video
-					var privacyStatus = (data.items.length > 0) ? data.items[0].status.privacyStatus : false; 
+					var privacyStatus = (data.items.length > 0) ? `${data.items[0].status.privacyStatus}` : `false`; 
 					console.log(`privacyStatus=${privacyStatus}`); 
 
-					if (privacyStatus === true) 
+					if (privacyStatus == `public`) 
 					{
 						// Pad epNum 
 						while (epNum.length < 3) 
@@ -90,6 +90,10 @@ function ParseAllRSS(url)
 
 						html += `<a href="/LowHP/episodes/${epNum}"> <h2 style="padding-bottom:0px;">${title}</h2></a>`;
 						html += `<br>`
+					}
+					else
+					{
+						console.log(`else privacyStatus=${privacyStatus}`); 
 					}
 				});
 			})
@@ -139,10 +143,10 @@ function ParseRSSToCount(url, count)
 					.then(data => 
 					{
 						// Check the privacy status of the video
-						var privacyStatus = (data.items.length > 0) ? data.items[0].status.privacyStatus : false; 
+						var privacyStatus = (data.items.length > 0) ? `${data.items[0].status.privacyStatus}` : `false`; 
 						console.log(`privacyStatus=${privacyStatus}`); 
 
-						if (privacyStatus === true) 
+						if (privacyStatus == `public`) 
 						{
 							// Pad epNum 
 							while (epNum.length < 3) 
@@ -157,6 +161,10 @@ function ParseRSSToCount(url, count)
 							html += `${content}`;
 							html += `<br><br>`
 						} 
+						else
+						{
+							console.log(`else privacyStatus=${privacyStatus}`); 
+						}
 					});
 				}
 			});
