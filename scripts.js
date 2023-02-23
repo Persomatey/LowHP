@@ -138,6 +138,8 @@ function ParseRSSToCount(url, count)
 
 function checkVideoPrivacyStatus(vidID) 
 {
+	console.log(`checking privacy status for ${vidID}`); 
+
 	// Build the API request URL
 	const API_KEY = "AIzaSyAmxEUOuRtdZSBFHGK-8y3coK711xQAYNE"; 
 	const apiUrl = `https://www.googleapis.com/youtube/v3/videos?id=${vidID}&key=${API_KEY}&part=status`;
