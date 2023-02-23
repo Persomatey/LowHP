@@ -25,17 +25,13 @@
 		  	<div class="column">
 
 			<script type="text/javascript">
-				
 				ParseRSSThenReturnIndex("/LowHP/thelowhppodcast.rss", GetEpisode())
 
 				function GetEpisode()
 				{
 					var url = window.location.href;
-					console.log(`url=${url}`); 
 					url = url.substr(url.length - 8);
-					console.log(`url=${url}`); 
 					url = url.substr(5, 3);
-					console.log(`url=${url}`); 
 					return url; 
 				}
 			</script>

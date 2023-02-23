@@ -18,24 +18,20 @@ function ParseRSSThenReturnIndex(url, passedNum)
 		{
 			let html = '';
 			let channel = data.querySelector('channel');
-			let channelTitle = channel.querySelector('title').textContent;
 			let items = channel.querySelectorAll('item');
 
 			html += '<p>';
 			num = passedNum;
-			console.log(num);
 			num = items.length - num;
-			console.log(num); 
 
 			let item = items.item(num);
 
 			let title = item.querySelector('title').textContent;
-			let link = item.querySelector('link').textContent;
 			let pubDate = item.querySelector('pubDate').textContent;
 			let description = item.querySelector('description').textContent;
 			let content = item.querySelector('content').textContent;
 			let ytLink = item.querySelector('ytlink').textContent;
-			let vidID = url.split("v=")[1]; 
+			let vidID = ytLink.split("v=")[1]; 
 
 			console.log(`Displaying content for episode ${item.querySelector('title').textContent} (vidID=${vidID})`); 
 
