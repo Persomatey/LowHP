@@ -31,7 +31,8 @@ function ParseRSSThenReturnIndex(url, passedNum)
 			let description = item.querySelector('description').textContent;
 			let content = item.querySelector('content').textContent;
 			let ytLink = item.querySelector('ytlink').textContent;
-			let vidID = ytLink.split("v=")[1]; 
+			// let vidID = ytLink.split("v=")[1]; 
+			let vidID = GetYouTubeIDFromURL(ytLink); 
 
 			html += `<h2 style="padding-bottom:0px;">${title}</h2>`;
 			html += `<h3 style="text-align:left;">${pubDate}</h3>`; 
@@ -63,6 +64,8 @@ function ParseAllRSS(url)
 			items.forEach(item => 
 			{
 				// Make the API request
+				const apiUrl = `https://www.googleapis.com/youtube/v3/videos?id=${vidID}&key=${API_KEY}&part=status`;
+
 				fetch(apiUrl)
 				.then(response => response.json())
 				.then(data => 
@@ -75,7 +78,8 @@ function ParseAllRSS(url)
 						let epNum = title.split(":")[0];
 
 						let ytLink = item.querySelector('ytlink').textContent;
-						let vidID = ytLink.split("v=")[1]; 
+						// let vidID = ytLink.split("v=")[1]; 
+						let vidID = GetYouTubeIDFromURL(ytLink); 
 						console.log(`${checkVideoPrivacyStatus(vidID)}`); 
 
 						// Pad epNum 
@@ -108,7 +112,6 @@ function ParseAllRSS(url)
 		.then(text => document.getElementById('rss').innerHTML = text);
 }
 
-
 function ParseRSSToCount(url, count) 
 {
 	// Fetch RSS 
@@ -132,6 +135,8 @@ function ParseRSSToCount(url, count)
 				if (n <= count)
 				{
 					// Make the API request
+					const apiUrl = `https://www.googleapis.com/youtube/v3/videos?id=${vidID}&key=${API_KEY}&part=status`;
+					
 					fetch(apiUrl)
 					.then(response => response.json())
 					.then(data => 
@@ -146,7 +151,8 @@ function ParseRSSToCount(url, count)
 							let description = item.querySelector('description').textContent;
 							let content = item.querySelector('content').textContent;
 							let ytLink = item.querySelector('ytlink').textContent;
-							let vidID = ytLink.split("v=")[1]; 
+							// let vidID = ytLink.split("v=")[1]; 
+							let vidID = GetYouTubeIDFromURL(ytLink); 
 							let epNum = title.split(":")[0];
 		
 							console.log(`${checkVideoPrivacyStatus(vidID)}`); 
@@ -183,4 +189,19 @@ function ParseRSSToCount(url, count)
 			return html;
 		})
 		.then(text => document.getElementById('rss').innerHTML = text);
+}
+
+function GetYouTubeIDFromURL(url) 
+{
+	const pattern = /(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=))([\w-]{11})/;
+	const match = url.match(pattern);
+	
+	if (match) 
+	{
+		return match[1];
+	} 
+	else 
+	{
+		return null;
+	}
 }
