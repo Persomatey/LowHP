@@ -159,11 +159,11 @@ function ParseRSSToCount(url, count)
 
 							// Pad epNum 
 							while (epNum.length < 3) 
-						{
-							console.log(`if 2 privacyStatus=${privacyStatus}`); 
-							epNum = "0" + epNum;
-							console.log(`if 3 privacyStatus=${privacyStatus}`); 
-						}
+							{
+								console.log(`if 2 privacyStatus=${privacyStatus}`); 
+								epNum = "0" + epNum;
+								console.log(`if 3 privacyStatus=${privacyStatus}`); 
+							}
 		
 							console.log(`if 4 privacyStatus=${privacyStatus} \n${html}`); 
 							html += `<a href="/LowHP/episodes/${epNum}" style="padding-bottom:0px;"><h2>${title}</h2></a>`;
