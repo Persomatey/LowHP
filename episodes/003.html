@@ -1,0 +1,51 @@
+<!doctype html> 
+<html style="background-color:#283850;"> 
+
+	<head>
+		<title>Low HP</title>
+		<link rel="stylesheet" type="text/css" href="/LowHP/style.css">
+		<script type="text/javascript" src="/LowHP/scripts.js"></script>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	</head>
+
+	<body style="background-color:#283850;" >
+
+		<!-- Header -->
+
+		<script type="text/javascript">LoadHeader("/LowHP/")</script>
+		<div id="header"></div>
+
+		<!-- Contents -->
+
+		<div class="row">
+			<div class="columnside">
+				<p></p>
+			</div>
+
+		  	<div class="column">
+
+			<script type="text/javascript">
+				ParseRSSThenReturnIndex("/LowHP/thelowhppodcast.rss", GetEpisode())
+
+				function GetEpisode()
+				{
+					var url = window.location.href;
+					url = url.substr(url.length - 8);
+					url = url.substr(5, 3);
+					return url; 
+				}
+			</script>
+
+			<div id="rss" style="padding-left:15px"></div>
+
+		  	</div>
+
+		  	<div class="columnside">
+		  		<p></p>
+		  	</div>
+		</div>
+
+		<!-- Footer -->
+
+	</body>
+</html>

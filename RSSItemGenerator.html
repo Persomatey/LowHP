@@ -181,7 +181,8 @@
 `;
 			}
 
-			function getCurrentDateTime() {
+			function GetCurrentDateTime() 
+			{
 				const date = new Date();
 				const dayOfWeek = date.toLocaleString('en-US', { weekday: 'short' });
 				const month = date.toLocaleString('en-US', { month: 'short' });
@@ -190,6 +191,28 @@
 				const time = date.toLocaleTimeString('en-US', { hour12: false, hour: 'numeric', minute: 'numeric', second: 'numeric' });
 				const timeZone = date.toLocaleString('en-US', { timeZoneName: 'short' });
 				return `${dayOfWeek}, ${dayOfMonth} ${month} ${year} ${time} ${timeZone}`;
+			}
+
+			function GetNextDataTime()
+			{
+				// MM/DD/YYY
+				const today = new Date();
+				const daysUntilFriday = (5 - today.getDay() + 7) % 7;
+				const nextFriday = new Date(today.getFullYear(), today.getMonth(), today.getDate() + daysUntilFriday);
+				const month = nextFriday.getMonth() + 1;
+				const day = nextFriday.getDate();
+				const year = nextFriday.getFullYear();
+				const formA = `${month.toString().padStart(2, '0')}/${day.toString().padStart(2, '0')}/${year.toString()}`;
+
+				// Day, DD Mon YYY 
+				const daysOfWeek = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+				const monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+				const dayOfWeek = daysOfWeek[nextFriday.getDay()];
+				const monthName = monthNames[nextFriday.getMonth()];
+				const formB = `${dayOfWeek}, ${day} ${monthName} ${year}`; 
+
+				// Example: Fri, 10 Mar 2023 05:00:00 3/10/2023, 5:00:00 AM PST 
+				return `${formB} 05:00:00 ${formA}, 5:00:00 AM PST`;
 			}
 
 			async function Print(fileURL, title, epNum, authors, desc, webLink, ytLink, contentEnc, content, artworkURL)
@@ -218,7 +241,7 @@
 					str += ` &nbsp <description>${desc}</description>\n`;
 					str += ` &nbsp <itunes:subtitle>${desc}</itunes:subtitle>\n`;
 					str += ` &nbsp <itunes:summary>${desc}</itunes:summary>\n`;
-					str += ` &nbsp <pubDate>${getCurrentDateTime()}</pubDate>\n`;
+					str += ` &nbsp <pubDate>${GetNextDataTime()}</pubDate>\n`;
 					str += ` &nbsp <link>${webLink}</link>\n`;
 					str += ` &nbsp <guid>${webLink}</guid>\n`;
 					str += ` &nbsp <ytlink>${ytLink}</ytlink>\n`;
